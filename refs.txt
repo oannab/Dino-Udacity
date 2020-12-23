@@ -1,0 +1,12 @@
+//randomize
+https://stackoverflow.com/questions/49709371/get-random-variable-with-javascript
+https://www.geeksforgeeks.org/how-to-shuffle-an-array-using-javascript/
+https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+//fetch
+https://www.jokecamp.com/blog/code-examples-api-http-get-json-different-languages/#js
+https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+https://stackoverflow.com/questions/247483/http-get-request-in-javascript/4033310#4033310
+https://www.youtube.com/watch?v=tc8DU14qX6I&list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X&index=3
+https://www.youtube.com/watch?v=5VCY9yCZnlc
