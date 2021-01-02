@@ -1,7 +1,7 @@
 
     
     // Create Dino Constructor
-    function Dinosaur(species, fact, image, diet, height, weight, where, when) { //parse json data
+    function Dinosaur(species, fact, images, diet, height, weight, where, when) { //parse json data
         
         let dinos = [] //empty array to store dinoFactory objs
         //fetch literal data from json
@@ -16,6 +16,17 @@
                     console.log(error);
                 });
 
+                fetch('https://github.com/udacity/Javascript/blob/master/dino.json')
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+            }).catch(function (error) {
+                console.log(error);
+        });
+
+        
             fetch(`./images`)
                 .then(response => {
                     return response.blob();

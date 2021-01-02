@@ -9,4 +9,8 @@ https://www.jokecamp.com/blog/code-examples-api-http-get-json-different-language
 https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
 https://stackoverflow.com/questions/247483/http-get-request-in-javascript/4033310#4033310
 https://www.youtube.com/watch?v=tc8DU14qX6I&list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X&index=3
-https://www.youtube.com/watch?v=5VCY9yCZnlc
+https://www.youtube.com/watch?v=1tVCwv_BX2M
+https://stackoverflow.com/questions/39940301/uncaught-syntaxerror-unexpected-token-vm34191
+
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+https://www.khanacademy.org/computing/computer-programming/programming-games-visualizations/memory-game/a/grid-of-tiles
