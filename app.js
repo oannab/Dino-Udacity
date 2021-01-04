@@ -20,7 +20,7 @@ document.querySelector('btn'){
 //const urlObj =  'https://github.com/udacity/Javascript/blob/master/dino.json'
 /*function loadJSON(callback) {   
 */
-
+///*
 const dinos =  [
     {
         "species": "Triceratops",
@@ -95,15 +95,15 @@ const dinos =  [
         "fact": "All birds are living dinosaurs."
     }
 ]
-
+//*/
 
 //let dinos = []; // empty array to push the json obj into to be able to map() it into the new Object
-const button = document.getElementById('btn');
-
 document.addEventListener("DOMContentLoaded", function(event) {
     console.log("DOM fully loaded and parsed");
+ 
     //init();
 });
+console.log(dinos)
 /*
 function init() {
     loadJSON(function(response) {
@@ -226,22 +226,22 @@ Dinosaur.prototype.compareDiet = function(human) {
         return `Thid dino is ${this.diet} whilst you prefer a ${human.diet}`
     }
 };    
-  
+
 
 Dinosaur.prototype.compareHeight = function(human) {
     console.log("second compare");
     if (this.height === human.height) {
         return `Tall as any dino around`;
-    } else (this.height > human.humanHeight()); {
+    } else (this.height > human.height); {
         console.log("second compare ended");
         return `The dinosaur is ${this.height / human.height} x more taller than you!`;
     } 
 };
-console.log("second compare ended");
+
 
 Dinosaur.prototype.compareWeight = function(human) { 
     console.log("third compare");
-    debugger
+    //debugger
     if (this.weight === human.weight) {
         return `I'm pretty sure you've entered the weight wrong`;
     } else if (this.weight > human.weight) {
@@ -276,6 +276,7 @@ function tiles(dinoArray, human) {
     const grid = document.getElementById('grid')
     grid.style.display = "flex";
 
+   
     const tile = document.createElement('div');
     tile.className = 'grid-item';
     tile.innerHTML = `<h3>${dinoArray.species}</h3> 
@@ -285,7 +286,7 @@ function tiles(dinoArray, human) {
     ${dinoArray.weight ? compWeight : ""}
     ${dinoArray.fact ? compFact : ""}</p>
     </div> `;
-
+    // conditional if statement
     //dinoTiles = [] //push each tile into this array
     dinoArray.forEach((dinoArray, human, index)=> {
         if (tile === 4) {
@@ -296,19 +297,28 @@ function tiles(dinoArray, human) {
             return tile;
         }
     });   
-    
+    return tile;
 };    
 
+const button = document.getElementById('btn');
 button.addEventListener('click', (event) => {
     console.log("btn pressed")
-    human;
-    dinoArray;
+    dinoArray.map(dino => {
+        if (dino.species) {
+            dino.compareHeight(human.height);
+            dino.compareWeight(human.weight);
+            dino.compareDiet(human.diet);
+        }
+    });
     tiles(dinoArray, human);    
     console.log("after tile")
     event.preventDefault();
 });
 
-const resetBtn = document.getElementById('reset-btn');
-resetBtn.addEventListener("click", () => {
+const resetBtn = document.getElementById('reset');
+resetBtn.addEventListener('click', () => {
+    console.log("reset")
     resetBtn.innerHTML = "";
+    //const form = document.getElementById("dino-compare");
+    //form.style.display = "none";
 })

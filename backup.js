@@ -16,7 +16,7 @@
                     console.log(error);
                 });
 
-                fetch('https://github.com/udacity/Javascript/blob/master/dino.json')
+                fetch('./dino.json')
             .then((response) => {
                 return response.json();
             })
@@ -80,13 +80,13 @@
     };
             dinoObj.push(dinos);
             dinos.map(getDinoData => {      
-                dinos.species;
-                dinos.fact;
-                dinos.diet;
-                dinos.height;
-                dinos.weight;
-                dinos.where;
-                dinos.when;
+                dino.species;
+                dino.fact;
+                dino.diet;
+                dino.height;
+                dino.weight;
+                dino.where;
+                dino.when;
             });
             return dinos
     };
