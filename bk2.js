@@ -175,10 +175,52 @@ grid.append(images);
             }
             return fact;    
         }
-
+        function tiles(dinoArray, human) {
+            const compDiet = dinoArray.compareDiet(human);
+            console.log("works")
+            const compHeight = dinoArray.compareHeight(human);
+            const compWeight = dinoArray.compareWeight(human);
+            const compFact = randomDinoFact(dinoArray);
+            console.log(dinoArray, human);
         
-    };     
-    
+        
+            const grid = document.getElementById('grid')
+            const tileFact = document.createElement('p')
+        
+            let randomFact = getRandomFact();
+              if (randomFact === 'compareHeight') {
+                tileFact.innerHTML = dinoArray.compareHeight();
+              } else if (randomFact === 'compareWeight') {
+                tileFact.innerHTML = dinoArray.compareWeight();
+              } else if (randomFact === 'compareDiet') {
+                tileFact.innerHTML = dinoArray.compareDiet();
+              } else {
+                tileFact.innerHTML = dinoArray[randomFact];
+              }
+        
+           
+            const tile = document.createElement('div');
+            tile.className = 'grid-item';
+            tile.innerHTML = `<h3>${dinoArray.species}</h3> 
+            <img src="./images/${dinoArray.species}.png" id="img"> 
+            <p>${dinoArray.diet ? compDiet : ""} 
+            ${dinoArray.height ? compHeight : ""}
+            ${dinoArray.weight ? compWeight : ""}
+            ${dinoArray.fact ? compFact : ""}</p>
+            </div> `;
+            // conditional if statement
+            //dinoTiles = [] //push each tile into this array
+            dinoArray.forEach((dinoArray, human, index)=> {
+                if (tile === 4) {
+                    tile.innerHTML = `<h3>${human.name}</h3> <img src="./images/human.png">`;
+                } else if (dinoArray.species === 'Pigeon') {
+                    tile.innerHTML = `All birds are considered dinosaurs.`
+                } else {
+                    return tile;
+                }
+            });   
+            return tile;
+        };  
 // Tile Module Ends -------------------------
 // set 3 methods under one big f()
     Dinosaur.prototype.compareDino = function(human) {

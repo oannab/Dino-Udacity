@@ -209,9 +209,8 @@ const dinoArray = dinos.map( dino =>
         dino.weight,
         dino.where,
         dino.when
-    )
+    )  
 )
-
 console.log("mapping succesful");
 console.log(dinoArray);
 console.log("end of dinoFactory")
@@ -223,7 +222,7 @@ Dinosaur.prototype.compareDiet = function(human) {
         return `Seems you and dinos ${this.diet} diet have similar tastes `
     } else {
         console.log("first compare ended");
-        return `Thid dino is ${this.diet} whilst you prefer a ${human.diet}`
+        return `Thid dino is a ${this.diet} whilst you prefer a ${human.diet}`
     }
 };    
 
@@ -252,43 +251,75 @@ Dinosaur.prototype.compareWeight = function(human) {
     }
 };        
 
-
-function randomDinoFact(dinoArray, human) {
-    dinoArray.splice(4, 0, human)//.concat(human);
+/*
+function randomDinoFact(dinoArray) {
+    //dinoArray.splice(4, 0, human);
     console.log(dinoArray);
-    //let fact = dinoArray.fact;
-    dinoArray.forEach(each =>{
-        Math.floor(Math.random() * dinoArray.fact.length)
+    let fact = dinoArray.fact;
+    dinoArray.forEach(fact =>{
+        Math.floor(Math.random() * fact.length)
+        console.log("shuffled")
     });  
+    return fact;
 }      
-
+*/
 //math.floor() as it is required a whole number(rounded) to access index as required with math.random()
 
 //tiles
 function tiles(dinoArray, human) {
-    const compDiet = dinoArray.compareDiet(human.diet);
+    //const compDiet = dinoArray.compareDiet(human);
     console.log("works")
-    const compHeight = dinoArray.compareHeight(human.height);
-    const compWeight = dinoArray.compareWeight(human.weight);
-    const compFact = randomDinoFact(dinoArray);
+    //const compHeight = dinoArray.compareHeight(human);
+    //const compWeight = dinoArray.compareWeight(human);
+    //const compFact = randomDinoFact(dinoArray);
     console.log(dinoArray, human);
+    const grid = document.getElementById('grid');
+    let fact = dinoArray.map(dino => {
+        if (dinoArray.species) {
+            dinoArray.compareHeight(human.height);
+            dinoArray.compareWeight(human.weight);
+            dinoArray.compareDiet(human.diet);
+            dinoArray.fact(Math.floor(Math.random() * dinoArray.fact.length))
+        }
+    });
+    
 
-    const grid = document.getElementById('grid')
-    grid.style.display = "flex";
+    dinoArray.map((dinoArray, human, index)=> {
+        
+        const tile = document.createElement('div');
+        tile.className = 'grid-item';
 
-   
-    const tile = document.createElement('div');
-    tile.className = 'grid-item';
-    tile.innerHTML = `<h3>${dinoArray.species}</h3> 
-    <img src="./images/${dinoArray.species}.png" id="img"> 
-    <p>${dinoArray.diet ? compDiet : ""} 
-    ${dinoArray.height ? compHeight : ""}
-    ${dinoArray.weight ? compWeight : ""}
-    ${dinoArray.fact ? compFact : ""}</p>
-    </div> `;
-    // conditional if statement
-    //dinoTiles = [] //push each tile into this array
-    dinoArray.forEach((dinoArray, human, index)=> {
+        const tileImg = document.createElement('img');
+        tileImg.innerHTML = `<img src="./images/${dinoArray.species}.png" id="img"> `
+
+        const tileFact = document.createElement('p');
+        tileFact.innerHTML = fact;
+        tile.appendChild(tileFact);
+
+        const tileName = document.createElement('h3');
+        tileName.innerHTML = `<h3>${dinoArray.species}</h3>`;
+        tile.appendChild(tileName); 
+    /*    let randomFact = getRandomFact();
+        if (randomFact === 'compareHeight') {
+            tileFact.innerHTML = dinoArray.compareHeight();
+        } else if (randomFact === 'compareWeight') {
+            tileFact.innerHTML = dinoArray.compareWeight();
+        } else if (randomFact === 'compareDiet') {
+            tileFact.innerHTML = dinoArray.compareDiet();
+        } else {
+            tileFact.innerHTML = dinoArray[randomFact];
+        }
+        ${dinoArray.diet ? compDiet : ""} 
+        ${dinoArray.height ? compHeight : ""}
+        ${dinoArray.weight ? compWeight : ""}
+    */  
+    
+        tile.innerHTML = `<h3>${dinoArray.species}</h3> 
+        <img src="./images/${dinoArray.species}.png" id="img"> 
+        <p>
+        ${dinoArray.fact}</p>
+        </div> `; 
+    
         if (tile === 4) {
             tile.innerHTML = `<h3>${human.name}</h3> <img src="./images/human.png">`;
         } else if (dinoArray.species === 'Pigeon') {
@@ -296,29 +327,41 @@ function tiles(dinoArray, human) {
         } else {
             return tile;
         }
+        grid.appendChild(tile);
     });   
     return tile;
 };    
 
-const button = document.getElementById('btn');
-button.addEventListener('click', (event) => {
-    console.log("btn pressed")
-    dinoArray.map(dino => {
-        if (dino.species) {
-            dino.compareHeight(human.height);
-            dino.compareWeight(human.weight);
-            dino.compareDiet(human.diet);
-        }
+
+let form = document.getElementById('dino-compare')
+
+
+function showGrid() {
+    const button = document.getElementById('btn');
+    button.addEventListener('click', (event) => {
+        human;
+        console.log("btn pressed")
+        form.innerHTML = ""
+        /*dinoArray.map(dino => {
+            if (dinoArray.species) {
+                dinoArray.compareHeight(human.height);
+                dinoArray.compareWeight(human.weight);
+                dinoArray.compareDiet(human.diet);
+                dinoArray.fact(Math.floor(Math.random() * dinoArray.fact.length))
+            }
+        }); */
+        tiles(dinoArray, human);    
+        console.log("after tile")
+        event.preventDefault();
     });
-    tiles(dinoArray, human);    
-    console.log("after tile")
-    event.preventDefault();
-});
+};
+
+showGrid();
 
 const resetBtn = document.getElementById('reset');
 resetBtn.addEventListener('click', () => {
     console.log("reset")
-    resetBtn.innerHTML = "";
+    form.style.display = "block";
     //const form = document.getElementById("dino-compare");
-    //form.style.display = "none";
+    //;
 })
