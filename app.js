@@ -20,7 +20,7 @@ document.querySelector('btn'){
 //const urlObj =  'https://github.com/udacity/Javascript/blob/master/dino.json'
 /*function loadJSON(callback) {   
 */
-/*
+
 const dinos =  [
     {
         "species": "Triceratops",
@@ -95,16 +95,16 @@ const dinos =  [
         "fact": "All birds are living dinosaurs."
     }
 ]
-*/
 
-let dinos = []; // empty array to push the json obj into to be able to map() it into the new Object
+
+//let dinos = []; // empty array to push the json obj into to be able to map() it into the new Object
 const button = document.getElementById('btn');
 
 document.addEventListener("DOMContentLoaded", function(event) {
     console.log("DOM fully loaded and parsed");
-    init();
+    //init();
 });
-
+/*
 function init() {
     loadJSON(function(response) {
         // Parse JSON string into object
@@ -263,22 +263,6 @@ function randomDinoFact(dinoArray, human) {
 }      
 
 //math.floor() as it is required a whole number(rounded) to access index as required with math.random()
-
-//randomDinoFact(dinoArray);
-/*
-You can append each fact into an array.
- And randomly select from the array using 
- Math.floor(Math.random() * array.length) 
- for (let i = dinoArray.length -1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-            var shf = fact[i];
-            fact[i] = fact[j]; //re-arrange the content
-            fact[j] = shf;
-        }
-        console.log("dino shuffling() succesful");
-        return fact;
-    }
-*/
 
 //tiles
 function tiles(dinoArray, human) {
