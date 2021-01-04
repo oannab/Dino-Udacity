@@ -1,4 +1,4 @@
-var dinos = {
+var json = {
     "Dinos": [
         {
             "species": "Triceratops",

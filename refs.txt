@@ -1,8 +1,14 @@
 //randomize
 https://stackoverflow.com/questions/49709371/get-random-variable-with-javascript
+https://www.khanacademy.org/computing/computer-programming/programming-games-visualizations/memory-game/a/grid-of-tiles
 https://www.geeksforgeeks.org/how-to-shuffle-an-array-using-javascript/
 https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+https://stackoverflow.com/questions/43267033/understanding-the-use-of-math-floor-when-randomly-accessing-an-array
+https://www.freecodecamp.org/news/lets-clear-up-the-confusion-around-the-slice-splice-split-methods-in-javascript-8ba3266c29ae/s
+
 
 //fetch
 https://www.jokecamp.com/blog/code-examples-api-http-get-json-different-languages/#js
@@ -11,6 +17,12 @@ https://stackoverflow.com/questions/247483/http-get-request-in-javascript/403331
 https://www.youtube.com/watch?v=tc8DU14qX6I&list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X&index=3
 https://www.youtube.com/watch?v=1tVCwv_BX2M
 https://stackoverflow.com/questions/39940301/uncaught-syntaxerror-unexpected-token-vm34191
+https://hashnode.com/post/how-do-you-usually-prefer-to-read-a-local-json-file-cjeziri3w0002v4s16tshy8vv
+https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
+https://www.tutorialspoint.com/how-to-import-local-json-file-data-to-my-javascript-variable
+
 
 https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
-https://www.khanacademy.org/computing/computer-programming/programming-games-visualizations/memory-game/a/grid-of-tiles
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+https://medium.com/better-programming/accessing-an-objects-keys-values-and-entries-in-javascript-e7bb5d33d11c

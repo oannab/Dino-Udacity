@@ -68,16 +68,26 @@
             dino.where;
             dino.when;
         });
+        const dinoObj = new Dinosaur();   
+    for(dino in dinos) {
+        dinoArray.push(dinos.map(
+            dinos.species, 
+            dinos.fact,
+            dinos.diet,
+            dinos.height,
+            dinos.weight,
+            dinos.where,
+            dinos.when))
+    };
             dinoObj.push(dinos);
             dinos.map(getDinoData => {      
-                dino.species;
-                dino.fact;
-                dino.image;
-                dino.diet;
-                dino.height;
-                dino.weight;
-                dino.where;
-                dino.when;
+                dinos.species;
+                dinos.fact;
+                dinos.diet;
+                dinos.height;
+                dinos.weight;
+                dinos.where;
+                dinos.when;
             });
             return dinos
     };
@@ -348,5 +358,11 @@
 
     // On button click, prepare and display info
     document.querySelector("#btn").onclick = () => {
-        
+        dinoArray.map(each =>{
+            if(dinoArray.species) {
+                dinoArray.compareDiet(human.diet);
+                console.log("works")
+                dinoArray.compareHeight(human.height);
+                dinoArray.compareWeight(human.weight);
+            }
     };
