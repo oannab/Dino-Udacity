@@ -20,6 +20,7 @@ https://stackoverflow.com/questions/39940301/uncaught-syntaxerror-unexpected-tok
 https://hashnode.com/post/how-do-you-usually-prefer-to-read-a-local-json-file-cjeziri3w0002v4s16tshy8vv
 https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
 https://www.tutorialspoint.com/how-to-import-local-json-file-data-to-my-javascript-variable
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 
 https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON

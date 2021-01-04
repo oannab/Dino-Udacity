@@ -54,19 +54,18 @@
 
     // Create Dino Objects----------------------------------
     function dinoFactory(dinos) { //dinos from Constructor
-        
+        //dinos.image = image(get(`./images/${data.species.toLowerCase()}`));
         dinoObj = [] //the new objects created from constructor
         dinos.map((dino) => {
-            dinoObj = new Dinosaur;
+            dinoObj = new Dinosaur(
        
-            dino.species;
-            dino.fact;
-            dino.image = image(get(`./images/${data.species.toLowerCase()}`));
-            dino.diet;
-            dino.height;
-            dino.weight;
-            dino.where;
-            dino.when;
+            dinos.species;
+            dinos.fact;
+            dinos.diet;
+            dinos.height;
+            dinos.weight;
+            dinos.where;
+            dinos.when;
         });
         const dinoObj = new Dinosaur();   
     for(dino in dinos) {
