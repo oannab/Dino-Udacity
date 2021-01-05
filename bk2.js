@@ -183,6 +183,35 @@ grid.append(images);
             const compFact = randomDinoFact(dinoArray);
             console.log(dinoArray, human);
         
+                /*    let tile = document.createElement('div');
+        tile.className = 'grid-item';
+
+        let tileImg = document.createElement('img');
+        tileImg.innerHTML = `<img src="./images/${dinoArray.species}.png" id="img"> `
+
+        let tileFact = document.createElement('p');
+        tileFact.innerHTML = dinoArray.fact;
+        tile.appendChild(tileFact);
+
+        let tileName = document.createElement('h3');
+        tileName.innerHTML = `<h3>${dinoArray.species}</h3>`;
+        tile.appendChild(tileName); 
+        let randomFact = getRandomFact();
+        if (randomFact === 'compareHeight') {
+            tileFact.innerHTML = dinoArray.compareHeight();
+        } else if (randomFact === 'compareWeight') {
+            tileFact.innerHTML = dinoArray.compareWeight();
+        } else if (randomFact === 'compareDiet') {
+            tileFact.innerHTML = dinoArray.compareDiet();
+        } else {
+            tileFact.innerHTML = dinoArray[randomFact];
+        }
+        ${dinoArray.diet ? compDiet : ""} 
+        ${dinoArray.height ? compHeight : ""}
+        ${dinoArray.weight ? compWeight : ""}
+    */  
+    
+   
         
             const grid = document.getElementById('grid')
             const tileFact = document.createElement('p')

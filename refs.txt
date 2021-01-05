@@ -27,3 +27,5 @@ https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
 https://medium.com/better-programming/accessing-an-objects-keys-values-and-entries-in-javascript-e7bb5d33d11c
+https://medium.com/javascript-in-plain-english/what-does-the-question-mark-mean-in-javascript-code-353cfadcf760
+https://eloquentjavascript.net/04_data.html

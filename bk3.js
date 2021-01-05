@@ -17,14 +17,12 @@ document.querySelector('btn'){
 }
 */
 
-// store as an array data fetched from json
 var dinoArray = [];
 var humanForm = [];
 var humanData;
-//initialize humanData to get access from IIFE in multiple scopes
 
-// Constructor f() to create template for future dino objects - empty of information, template only
-function Dinosaur(species, weight, height, diet, where, when, fact, image) { 
+// Constructor f() to create template for future dino objects - empty of information, architecture only
+function Dinosaur(species, weight, height, diet, where, when, fact, image) { //species, weight, height, diet, where, when, fact
     this.species = species;
     this.weight = weight;
     this.height = height;
@@ -33,26 +31,27 @@ function Dinosaur(species, weight, height, diet, where, when, fact, image) {
     this.when = when;
     this.fact = fact;
     //this.image= './images/.png';
-    //console.log(Dinosaur);
-    //console.log("Dino _____ human")
+//console.log(Dinosaur);
+console.log("Dino _____ human")
 };
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    //console.log("DOM fully loaded and parsed");
-    //call function which loads json data when DOM is loaded
+    console.log("DOM fully loaded and parsed");
+ 
     init();
 });
 
 
 function init() {
     loadJSON(function(response) {
-        //get JSON string into object
+        // Parse JSON string into object
         dinos = JSON.stringfy(response);
-        // dinos var declared in json
+        
     });
-    //console.log("json read",dinos['Dinos']);
-    //create a new array on Constructor containing all data fetched from json
+    //dinos = json.Dinos;
+    console.log("json read",dinos['Dinos']);
+
     dinoArray = dinos['Dinos'].map( dino => 
         new Dinosaur(
             dino.species,
@@ -64,7 +63,8 @@ function init() {
             dino.fact
         )  
     )
-    //console.log("dino array",dinoArray);
+
+    console.log("dino array",dinoArray);
     return dinoArray;
 }
 
@@ -93,7 +93,8 @@ var getDinoImage = fetch(`./Dino-Udacity/images`)
 */
 function getHumanData() {
     const human = (function () { //get data from form
-    //console.log("beginning of human f()")
+        //let humanImage = getImage('./images/human.png');
+    console.log("beginning of human f()")
     let inputName = document.getElementById('name').value;
     let inputFeet = document.getElementById('feet').value;
     let inputInch = document.getElementById('inches').value;            
@@ -117,22 +118,28 @@ function getHumanData() {
         return inputImage;
     }
 
-    //console.log("all human () loaded")   
+    console.log("all human () loaded")   
     return {
         name: humanName(),
         height: humanHeight(),
         weight: humanWeight(),
         diet: humanDiet(),
         image: humanImage()
+        
     }      
     })();
     return human;
 }
 
-//create dino methods on Constructor()-template to compare into tiles
+// store new Dino objects
+
+//create dino objects from Constructor()-template
+
+
 Dinosaur.prototype.compareDiet = function(humanData) {
+    console.log("first compare");
     if (this.diet === humanData.diet) {
-        return `Seems you and dino are both ${this.diet}s `
+        return `Seems you and dino are both ${this.diet}  `
     } else {
         console.log("first compare ended");
         return `Thid dino is a ${this.diet} whilst you are a ${humanData.diet}`
@@ -151,16 +158,20 @@ Dinosaur.prototype.compareHeight = function(humanData) {
 
 
 Dinosaur.prototype.compareWeight = function(humanData) { 
+    //console.log("third compare");
+    //debugger
     if (this.weight < humanData.weight) {
         return `I'm pretty sure you've entered the weight wrong`;
     } else if (this.weight > humanData.weight) {
         return `The dinosaur is ${Math.round(this.weight / humanData.weight)}x more heavier than you!`;
     } else {
+        //console.log("third compare ended");
         return `Probably an input mistake.`
     }
 };        
 
-Dinosaur.prototype.randomFact = function() {  
+Dinosaur.prototype.randomFact = function() { 
+    //(Math.floor(Math.random() * dinoArray.length)); 
     return this.fact;
 }     
 
@@ -168,25 +179,38 @@ Dinosaur.prototype.randomFact = function() {
 
 //create grid elements
 function tiles() {
-    // push human object into dino array to place it at index[4] on the grid
-    dinoArray.splice(4, 0, humanData); 
+    
+    console.log("works")
+    dinoArray.splice(4, 0, humanData);
 
     const grid = document.getElementById('grid');
-
+ /*   function getFact() {
+        let fact = dinoArray.foEach(dino => {
+            if (dinoArray.species) {
+                dinoArray.compareHeight(human.height);
+                dinoArray.compareWeight(human.weight);
+                dinoArray.compareDiet(human.diet);
+                dinoArray.randomFact();
+            }
+        });
+    }
+    var getFact = getFact();
+    */
+ 
     compare();
-    //
+    
     function compare() {
         dinoArray.forEach((dinoArray, index)=> {
 
             console.log("index",index);
-            if(index === 4) { //grid tile for human
+            if(index === 4) {
                 grid.innerHTML += `
                                 <div class="grid-item">
                                 <h3>${humanData.name}</h3>
                                 <img src="./images/human.png" alt="${humanData.name} image" />
                                 </div>
                                 `;
-            } else if (dinoArray.species === 'pigeon') { //grid tile for pigeon to contain only one description
+            } else if (dinoArray.species === 'pigeon') {
                 grid.innerHTML += `
                                 <div class="grid-item">
                                 <h3>"All birds are considered dinosaurs"</h3>
@@ -194,17 +218,17 @@ function tiles() {
                                 `;
             }
             else{
-                //general grid tile to contain comparison f()
+
                 const compareDiet = dinoArray.compareDiet(humanData);
                 const compareHeight = dinoArray.compareHeight(humanData);
                 const compareWeight = dinoArray.compareWeight(humanData);
                 const compareFact = dinoArray.randomFact();
-                
+
                 grid.innerHTML += `
                 <div class="grid-item">
                 <h3>${dinoArray.species}</h3>
                 <img src="./images/${dinoArray.species}.png" alt="${dinoArray.species} image" />
-                
+
                 <p>${dinoArray.diet ? compareDiet : ""}
                 ${dinoArray.weight ? compareHeight : ""}
                 ${dinoArray.height ? compareWeight : ""}
@@ -216,19 +240,24 @@ function tiles() {
                 }
         });
     }
+    //src="images/${dinoArray.species}.png" alt="image of ${dinoArray.species}">  <img src="${dinoArray.image}.png" id="img" />
+    //id="img"  <img src="./images/${dinos.species}.png" alt="${dinos.species} image" /> alt="${dinoArray.species} image"
+    
+   
 };     
 
 function showGrid() {
     const button = document.getElementById('btn');
     button.addEventListener('click', (event) => {
-        //assign the getHumanData() to global variable
-        humanData = getHumanData(); 
+        humanData = getHumanData();
+        console.log("btn pressed")
+
+        console.log(dinoArray);
+
         tiles();    
-        //generate tiles
-        //delete form from window once grid has been initialized
         document.getElementById("dino-compare").style.display = "none";
-        //console.log("after tile");
-        //console.log(humanData);
+        console.log("after tile");
+        console.log(humanData);
         event.preventDefault();
     });
 };
@@ -237,7 +266,7 @@ showGrid();
 
 const resetBtn = document.getElementById('reset');
 resetBtn.addEventListener('click', () => {
-    //console.log("reset")
+    console.log("reset")
     document.getElementById('grid').style.display = "none"
     document.getElementById("dino-compare").style.display = "block";
     
