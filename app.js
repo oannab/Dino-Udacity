@@ -21,100 +21,116 @@ document.querySelector('btn'){
 /*function loadJSON(callback) {   
 */
 ///*
-const dinos =  [
-    {
-        "species": "Triceratops",
-        "weight": 13000,
-        "height": 114,
-        "diet": "herbavor",
-        "where": "North America",
-        "when": "Late Cretaceous",
-        "fact": "First discovered in 1889 by Othniel Charles Marsh"
-    },
-    {
-        "species": "Tyrannosaurus Rex",
-        "weight": 11905,
-        "height": 144,
-        "diet": "carnivor",
-        "where": "North America",
-        "when": "Late Cretaceous",
-        "fact": "The largest known skull measures in at 5 feet long."
-    },
-    {
-        "species": "Anklyosaurus",
-        "weight": 10500,
-        "height": 55,
-        "diet": "herbavor",
-        "where": "North America",
-        "when": "Late Cretaceous",
-        "fact": "Anklyosaurus survived for approximately 135 million years."
-    },
-    {
-        "species": "Brachiosaurus",
-        "weight": 70000,
-        "height": "372",
-        "diet": "herbavor",
-        "where": "North America",
-        "when": "Late Jurasic",
-        "fact": "An asteroid was named 9954 Brachiosaurus in 1991."
-    },
-    {
-        "species": "Stegosaurus",
-        "weight": 11600,
-        "height": 79,
-        "diet": "herbavor",
-        "where": "North America, Europe, Asia",
-        "when": "Late Jurasic to Early Cretaceous",
-        "fact": "The Stegosaurus had between 17 and 22 seperate places and flat spines."
-    },
-    {
-        "species": "Elasmosaurus",
-        "weight": 16000,
-        "height": 59,
-        "diet": "carnivor",
-        "where": "North America",
-        "when": "Late Cretaceous",
-        "fact": "Elasmosaurus was a marine reptile first discovered in Kansas."
-    },
-    {
-        "species": "Pteranodon",
-        "weight": 44,
-        "height": 20,
-        "diet": "carnivor",
-        "where": "North America",
-        "when": "Late Cretaceous",
-        "fact": "Actually a flying reptile, the Pteranodon is not a dinosaur."
-    },
-    {
-        "species": "Pigeon",
-        "weight": 0.5,
-        "height": 9,
-        "diet": "herbavor",
-        "where": "World Wide",
-        "when": "Holocene",
-        "fact": "All birds are living dinosaurs."
-    }
-]
+// const dinos =  [
+//     {
+//         "species": "Triceratops",
+//         "weight": 13000,
+//         "height": 114,
+//         "diet": "herbavor",
+//         "where": "North America",
+//         "when": "Late Cretaceous",
+//         "fact": "First discovered in 1889 by Othniel Charles Marsh"
+//     },
+//     {
+//         "species": "Tyrannosaurus Rex",
+//         "weight": 11905,
+//         "height": 144,
+//         "diet": "carnivor",
+//         "where": "North America",
+//         "when": "Late Cretaceous",
+//         "fact": "The largest known skull measures in at 5 feet long."
+//     },
+//     {
+//         "species": "Anklyosaurus",
+//         "weight": 10500,
+//         "height": 55,
+//         "diet": "herbavor",
+//         "where": "North America",
+//         "when": "Late Cretaceous",
+//         "fact": "Anklyosaurus survived for approximately 135 million years."
+//     },
+//     {
+//         "species": "Brachiosaurus",
+//         "weight": 70000,
+//         "height": "372",
+//         "diet": "herbavor",
+//         "where": "North America",
+//         "when": "Late Jurasic",
+//         "fact": "An asteroid was named 9954 Brachiosaurus in 1991."
+//     },
+//     {
+//         "species": "Stegosaurus",
+//         "weight": 11600,
+//         "height": 79,
+//         "diet": "herbavor",
+//         "where": "North America, Europe, Asia",
+//         "when": "Late Jurasic to Early Cretaceous",
+//         "fact": "The Stegosaurus had between 17 and 22 seperate places and flat spines."
+//     },
+//     {
+//         "species": "Elasmosaurus",
+//         "weight": 16000,
+//         "height": 59,
+//         "diet": "carnivor",
+//         "where": "North America",
+//         "when": "Late Cretaceous",
+//         "fact": "Elasmosaurus was a marine reptile first discovered in Kansas."
+//     },
+//     {
+//         "species": "Pteranodon",
+//         "weight": 44,
+//         "height": 20,
+//         "diet": "carnivor",
+//         "where": "North America",
+//         "when": "Late Cretaceous",
+//         "fact": "Actually a flying reptile, the Pteranodon is not a dinosaur."
+//     },
+//     {
+//         "species": "Pigeon",
+//         "weight": 0.5,
+//         "height": 9,
+//         "diet": "herbavor",
+//         "where": "World Wide",
+//         "when": "Holocene",
+//         "fact": "All birds are living dinosaurs."
+//     }
+// ]
 //*/
 
 //let dinos = []; // empty array to push the json obj into to be able to map() it into the new Object
+var dinoArray = [];
+var humanForm = [];
+var humanData;
 document.addEventListener("DOMContentLoaded", function(event) {
     console.log("DOM fully loaded and parsed");
  
-    //init();
+    init();
 });
-console.log(dinos)
-/*
+
+
 function init() {
     loadJSON(function(response) {
         // Parse JSON string into object
-        json = JSON.stringfy(response);
+        dinos = JSON.stringfy(response);
         
     });
-    dinos.push(json);
     //dinos = json.Dinos;
-    console.log(dinos);
-    return dinos;
+    console.log("json read",dinos['Dinos']);
+
+    dinoArray = dinos['Dinos'].map( dino => 
+        new Dinosaur(
+            dino.species,
+            dino.fact,
+            dino.diet,
+            dino.height,
+            dino.weight,
+            dino.where,
+            dino.when
+        )  
+    )
+
+    console.log("dino array",dinoArray);
+    return dinoArray;
 }
 
 function loadJSON(callback, done) {
@@ -140,7 +156,6 @@ var getDinoImage = fetch(`./Dino-Udacity/images`)
         console.log(error);
 });
 */
-console.log(dinos)
 // Constructor f() to create template for future dino objects - empty of information, architecture only
 function Dinosaur(species, weight, height, diet, where, when, fact) { //species, weight, height, diet, where, when, fact
     this.species = species;
@@ -155,96 +170,81 @@ function Dinosaur(species, weight, height, diet, where, when, fact) { //species,
 console.log(Dinosaur);
 console.log("Dino _____ human")
 
-let human = (function () { //get data from form
-    //let humanImage = getImage('./images/human.png');
-console.log("beginning of human f()")
-let inputName = document.getElementById('name').value.toLowerCase();
-let inputFeet = document.getElementById('feet').value;
-let inputInch = document.getElementById('inches').value;            
-let inputWeight = document.getElementById('weight').value;    
-let inputDiet =  document.getElementById('diet').value;
-let inputImage = './images/human.png';
+function getHumanData() {
+    const human = (function () { //get data from form
+        //let humanImage = getImage('./images/human.png');
+    console.log("beginning of human f()")
+    let inputName = document.getElementById('name').value;
+    let inputFeet = document.getElementById('feet').value;
+    let inputInch = document.getElementById('inches').value;            
+    let inputWeight = document.getElementById('weight').value;    
+    let inputDiet =  document.getElementById('diet').value;
+    let inputImage = './images/human.png';
 
-function humanName (){
-    return inputName;
-}   
-function humanHeight () {
-    return inputFeet, inputInch;
-}   
-function humanWeight () {
-    return inputWeight;
-}
-function humanDiet () {
-    return inputDiet;
-}
-function humanImage() {
-    return inputImage;
-}
+    function humanName (){
+        return inputName;
+    }   
+    function humanHeight () {
+        return inputFeet, inputInch;
+    }   
+    function humanWeight () {
+        return inputWeight;
+    }
+    function humanDiet () {
+        return inputDiet;
+    }
+    function humanImage() {
+        return inputImage;
+    }
 
-console.log("all human () loaded")   
-return {
-    name: humanName(),
-    height: humanHeight(),
-    weight: humanWeight(),
-    diet: humanDiet(),
-    image: humanImage()
-    
+    console.log("all human () loaded")   
+    return {
+        name: humanName(),
+        height: humanHeight(),
+        weight: humanWeight(),
+        diet: humanDiet(),
+        image: humanImage()
+        
+    }      
+    })();
+    return human;
 }
-        
-        
-})();
-console.log(human);
-console.log(`human is a ${human.diet}`);
-console.log(`dino has ${this.diet}`)
 
 // store new Dino objects
 
 //create dino objects from Constructor()-template
-const dinoArray = dinos.map( dino => 
-    new Dinosaur(
-        dino.species,
-        dino.fact,
-        dino.diet,
-        dino.height,
-        dino.weight,
-        dino.where,
-        dino.when
-    )  
-)
-console.log("mapping succesful");
-console.log(dinoArray);
-console.log("end of dinoFactory")
 
 
-Dinosaur.prototype.compareDiet = function(human) {
+Dinosaur.prototype.compareDiet = function(humanDiet) {
     console.log("first compare");
-    if (this.diet === human.diet) {
+    if (this.diet === humanDiet) {
         return `Seems you and dinos ${this.diet} diet have similar tastes `
     } else {
         console.log("first compare ended");
-        return `Thid dino is a ${this.diet} whilst you prefer a ${human.diet}`
+        return `Thid dino is a ${this.diet} whilst you prefer a ${humanDiet}`
     }
 };    
 
 
-Dinosaur.prototype.compareHeight = function(human) {
+Dinosaur.prototype.compareHeight = function(humanHeight) {
     console.log("second compare");
-    if (this.height === human.height) {
+    if (this.height > humanHeight) {
+        this.fact = humanHeight;
         return `Tall as any dino around`;
-    } else (this.height > human.height); {
+    } else (this.height > humanHeight); {
         console.log("second compare ended");
-        return `The dinosaur is ${this.height / human.height} x more taller than you!`;
+        return `The dinosaur is ${this.height / humanHeight} x more taller than you!`;
     } 
 };
 
 
-Dinosaur.prototype.compareWeight = function(human) { 
+Dinosaur.prototype.compareWeight = function(humanWeight) { 
     console.log("third compare");
     //debugger
-    if (this.weight === human.weight) {
+    if (this.weight > humanWeight) {
         return `I'm pretty sure you've entered the weight wrong`;
-    } else if (this.weight > human.weight) {
-        return `The dinosaur is ${this.weight / human.weight} x more heavier than you!`;
+    } else if (this.weight > humanWeight) {
+        return `The dinosaur is ${this.weight / humanWeight} x more heavier than you!`;
     } else {
         console.log("third compare ended");
         return `Probably an input mistake.`
@@ -261,45 +261,63 @@ function randomDinoFact(dinoArray) {
         console.log("shuffled")
     });  
     return fact;
-}      
+}     
 */
 //math.floor() as it is required a whole number(rounded) to access index as required with math.random()
 
 //tiles
-function tiles(dinoArray, human) {
-    //const compDiet = dinoArray.compareDiet(human);
+function tiles() {
+    
     console.log("works")
-    //const compHeight = dinoArray.compareHeight(human);
-    //const compWeight = dinoArray.compareWeight(human);
-    //const compFact = randomDinoFact(dinoArray);
-    console.log(dinoArray, human);
+    
+    console.log(dinoArray, humanData);
     const grid = document.getElementById('grid');
-    let fact = dinoArray.map(dino => {
-        if (dinoArray.species) {
-            dinoArray.compareHeight(human.height);
-            dinoArray.compareWeight(human.weight);
-            dinoArray.compareDiet(human.diet);
-            dinoArray.fact(Math.floor(Math.random() * dinoArray.fact.length))
-        }
-    });
+    // let fact = dinoArray.map(dino => {
+    //     if (dinoArray.species) {
+    //         dinoArray.compareHeight(human.height);
+    //         dinoArray.compareWeight(human.weight);
+    //         dinoArray.compareDiet(human.diet);
+    //         dinoArray.fact(Math.floor(Math.random() * dinoArray.fact.length))
+    //     }
+    // });
     
 
-    dinoArray.map((dinoArray, human, index)=> {
-        
-        const tile = document.createElement('div');
+    dinoArray.forEach((dinoArray, index)=> {
+        if(index === 4) {
+            grid.innerHTML = `<h3>${humanData.name}</h3> <img src="./images/human.png">`;
+        } else if (dinoArray.species === 'Pigeon') {
+            grid.innerHTML = `All birds are considered dinosaurs.`
+        }
+        else{
+            var compDiet = dinoArray.compareDiet(humanData);
+            var compHeight = dinoArray.compareHeight(humanData);
+            var compWeight = dinoArray.compareWeight(humanData);
+            //var compFact = randomDinoFact(dinoArray);
+        }
+    });
+    grid.innerHTML = `<h3>${dinoArray.species}</h3> 
+    <img src="./images/${dinoArray.species}.png" id="img"> 
+    <p>${dinoArray.diet ? compDiet : ""} 
+    ${dinoArray.height ? compHeight : ""}
+    ${dinoArray.weight ? compWeight : ""}
+    ${dinoArray.fact}</p>
+    </div> `;     
+   
+};     
+    /*    let tile = document.createElement('div');
         tile.className = 'grid-item';
 
-        const tileImg = document.createElement('img');
+        let tileImg = document.createElement('img');
         tileImg.innerHTML = `<img src="./images/${dinoArray.species}.png" id="img"> `
 
-        const tileFact = document.createElement('p');
-        tileFact.innerHTML = fact;
+        let tileFact = document.createElement('p');
+        tileFact.innerHTML = dinoArray.fact;
         tile.appendChild(tileFact);
 
-        const tileName = document.createElement('h3');
+        let tileName = document.createElement('h3');
         tileName.innerHTML = `<h3>${dinoArray.species}</h3>`;
         tile.appendChild(tileName); 
-    /*    let randomFact = getRandomFact();
+        let randomFact = getRandomFact();
         if (randomFact === 'compareHeight') {
             tileFact.innerHTML = dinoArray.compareHeight();
         } else if (randomFact === 'compareWeight') {
@@ -314,23 +332,7 @@ function tiles(dinoArray, human) {
         ${dinoArray.weight ? compWeight : ""}
     */  
     
-        tile.innerHTML = `<h3>${dinoArray.species}</h3> 
-        <img src="./images/${dinoArray.species}.png" id="img"> 
-        <p>
-        ${dinoArray.fact}</p>
-        </div> `; 
-    
-        if (tile === 4) {
-            tile.innerHTML = `<h3>${human.name}</h3> <img src="./images/human.png">`;
-        } else if (dinoArray.species === 'Pigeon') {
-            tile.innerHTML = `All birds are considered dinosaurs.`
-        } else {
-            return tile;
-        }
-        grid.appendChild(tile);
-    });   
-    return tile;
-};    
+   
 
 
 let form = document.getElementById('dino-compare')
@@ -339,19 +341,22 @@ let form = document.getElementById('dino-compare')
 function showGrid() {
     const button = document.getElementById('btn');
     button.addEventListener('click', (event) => {
-        human;
+        humanData = getHumanData();
         console.log("btn pressed")
-        form.innerHTML = ""
-        /*dinoArray.map(dino => {
-            if (dinoArray.species) {
-                dinoArray.compareHeight(human.height);
-                dinoArray.compareWeight(human.weight);
-                dinoArray.compareDiet(human.diet);
-                dinoArray.fact(Math.floor(Math.random() * dinoArray.fact.length))
+        //form.innerHTML = ""
+        console.log(dinoArray);
+    /*    humanForm = dinoArray.map(dino => {
+            if (dino.species) {
+                dino.compareHeight(human.height);
+                dino.compareWeight(human.weight);
+                dino.compareDiet(human.diet);
+                //dinoArray.fact(Math.floor(Math.random() * dinoArray.fact.length))
             }
         }); */
-        tiles(dinoArray, human);    
-        console.log("after tile")
+        tiles();    
+        document.getElementById("dino-compare").style.display = "none";
+        console.log("after tile");
+        console.log(humanForm);
         event.preventDefault();
     });
 };
@@ -361,7 +366,7 @@ showGrid();
 const resetBtn = document.getElementById('reset');
 resetBtn.addEventListener('click', () => {
     console.log("reset")
-    form.style.display = "block";
+    document.getElementById("dino-compare").style.display = "block";
     //const form = document.getElementById("dino-compare");
     //;
 })
