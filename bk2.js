@@ -175,6 +175,42 @@ grid.append(images);
             }
             return fact;    
         }
+
+        /*
+function randomizeFacts () {
+
+    let fact= [
+        'compareHeight', 
+        'compareWeight',
+        'compareDiet'
+    ];
+
+    for (var i = fact.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = fact[i];
+        fact[i] = fact[j];
+        fact[j] = temp;
+        return temp;
+    }    
+    //const randomIndex = Math.floor(Math.random() * fact.length);
+    //const shuffle = fact[randomIndex];
+    //return shuffle; */
+        /*
+    const getFact = randomizeFacts();
+
+    dinoArray.forEach((dinoArray, index)=> {
+        if (getFact === 'compareHeight') {
+            grid.innerHTML = dinoArray.compareHeight(humanData.height);
+        } else if (getFact === 'compareWeight') {
+        grid.innerHTML = dinoArray.compareWeight(humanData.weight);
+        } else if (getFact === 'compareDiet') {
+        grid.innerHTML = dinoArray.compareDiet(humanData.diet);
+        } else {
+        grid.innerHTML = dinoArray.compareFact();
+        }
+    }) */
+    
+
         function tiles(dinoArray, human) {
             const compDiet = dinoArray.compareDiet(human);
             console.log("works")
