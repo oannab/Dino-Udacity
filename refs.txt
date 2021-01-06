@@ -13,6 +13,12 @@ https://www.freecodecamp.org/news/lets-clear-up-the-confusion-around-the-slice-s
 //fetch
 https://www.jokecamp.com/blog/code-examples-api-http-get-json-different-languages/#js
 https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+https://stackoverflow.com/questions/3038901/how-to-get-the-response-of-xmlhttprequest
+https://gist.github.com/alperg/d3a20788d5e0d09ddb6d
+https://forum.freecodecamp.org/t/get-json-with-the-javascript-xmlhttprequest-method/197547
+https://javascript.info/xmlhttprequest
+https://stackoverflow.com/questions/1973140/parsing-json-from-xmlhttprequest-responsejson
+https://medium.com/@cristi.nord/javascript-json-parse-bc93795b8623
 https://stackoverflow.com/questions/247483/http-get-request-in-javascript/4033310#4033310
 https://www.youtube.com/watch?v=tc8DU14qX6I&list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X&index=3
 https://www.youtube.com/watch?v=1tVCwv_BX2M
@@ -21,6 +27,7 @@ https://hashnode.com/post/how-do-you-usually-prefer-to-read-a-local-json-file-cj
 https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
 https://www.tutorialspoint.com/how-to-import-local-json-file-data-to-my-javascript-variable
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api
 
 
 https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON

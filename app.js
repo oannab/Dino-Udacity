@@ -1,4 +1,3 @@
-
 /*
 loadJSON
 parse Json
@@ -17,11 +16,15 @@ document.querySelector('btn'){
 }
 */
 
-// store as an array data fetched from json
+
+/*References ' refs.txt' */
+
+
+// empty array to store as an array data fetched from json
 var dinoArray = [];
 var humanForm = [];
 var humanData;
-//initialize humanData to get access from IIFE in multiple scopes
+//declare humanData to allow access from IIFE in multiple scopes
 
 // Constructor f() to create template for future dino objects - empty of information, template only
 function Dinosaur(species, weight, height, diet, where, when, fact, image) { 
@@ -52,7 +55,7 @@ function init() {
         // dinos var declared in json
     });
     //console.log("json read",dinos['Dinos']);
-    //create a new array on Constructor containing all data fetched from json
+    //create a new array on Constructor mapping/containing all data fetched from json
     dinoArray = dinos['Dinos'].map( dino => 
         new Dinosaur(
             dino.species,
@@ -69,12 +72,12 @@ function init() {
 }
 
 function loadJSON(callback, done) {
-    var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest(); //object to request data from web server
     xhr.overrideMimeType("application/json");
-    xhr.open('GET', 'dino.json', true);
-    xhr.onreadystatechange = function() {
+    xhr.open('GET', 'dino.json', true); //initialize request
+    xhr.onreadystatechange = function() { 
         if (xhr.status === "200") {
-            callback(xhr.responseText);
+            callback(xhr.responseText); //returns a DOMString response as text
         }
     };
     //xhr.send(null);
@@ -134,7 +137,7 @@ Dinosaur.prototype.compareDiet = function(humanData) {
     if (this.diet === humanData.diet) {
         return `Seems you and dino are both ${this.diet}s `
     } else {
-        console.log("first compare ended");
+        //console.log("first compare ended");
         return `Thid dino is a ${this.diet} whilst you are a ${humanData.diet}`
     }
 };    
@@ -143,7 +146,7 @@ Dinosaur.prototype.compareDiet = function(humanData) {
 Dinosaur.prototype.compareHeight = function(humanData) {
     console.log("second compare");
     if (this.height < humanData.height) {
-        return `You're as tall as any dino around`;
+        return `You're as tall as any dinosaur around`;
     } else (this.height > humanData.height); {
         return `The dinosaur is ${Math.round(this.height / humanData.height)} x more taller than you!`;
     } 
@@ -170,8 +173,8 @@ Dinosaur.prototype.randomFact = function() {
 function tiles() {
     // push human object into dino array to place it at index[4] on the grid
     dinoArray.splice(4, 0, humanData); 
-
-    const grid = document.getElementById('grid');
+   
+    const grid = document.getElementById('grid'); 
 
     compare();
     //
@@ -212,7 +215,7 @@ function tiles() {
                 </p>
 
                 </div>
-                `;
+                `; // changing grid's innerHTML to attach comparison for facts for each tile
                 }
         });
     }
