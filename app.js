@@ -67,6 +67,7 @@ function init() {
     return dinoArray;
 }
 
+
 function loadJSON(callback, done) {
     var xhr = new XMLHttpRequest(); //object to request data from web server
     xhr.overrideMimeType('application/json');
@@ -79,7 +80,6 @@ function loadJSON(callback, done) {
     //xhr.send(null);
 } 
 
-//get data from form
 function getHumanData() {
     const human = (function () { 
     //get data from form
@@ -116,7 +116,6 @@ function getHumanData() {
     })();
     return human;
 }
-   
 
 //create dino methods on Constructor()-template to compare into tiles
 Dinosaur.prototype.compareDiet = function(humanData) {
@@ -126,7 +125,6 @@ Dinosaur.prototype.compareDiet = function(humanData) {
     return `Thid dino is a ${this.diet} whilst you are a ${humanData.diet}`
 };    
 
-
 Dinosaur.prototype.compareHeight = function(humanData) {
     if (this.height < humanData.height) {
         return `You're as tall as any dinosaur around. Seems like you are ${Math.round(humanData.height / this.height)}x taller than ${this.species}`;
@@ -134,7 +132,6 @@ Dinosaur.prototype.compareHeight = function(humanData) {
         return `The dinosaur is ${Math.round(this.height / humanData.height)} x more taller than you!`;
     } 
 };
-
 
 Dinosaur.prototype.compareWeight = function(humanData) { 
     if (this.weight < humanData.weight) {
@@ -204,6 +201,7 @@ function tiles() {
     compare();
 };     
 
+
 function showGrid() {
     button.addEventListener('click', (event) => {
         //assign the getHumanData() to global variable
@@ -211,21 +209,19 @@ function showGrid() {
 
         //delete form from window once grid has been initialized
         document.getElementById('dino-compare').style.display = "none";
-
+        
         //generate tiles
         tiles();
 
-        //event.preventDefault();
+        event.preventDefault();
     });
 };
-
-
 
 
 resetBtn.addEventListener('click', () => {
     document.getElementById('grid').style.display = "none"
     document.getElementById('dino-compare').style.display = "block";
-    location.reload();
+    window.location.reload();
     
 });
 
