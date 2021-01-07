@@ -36,3 +36,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://medium.com/better-programming/accessing-an-objects-keys-values-and-entries-in-javascript-e7bb5d33d11c
 https://medium.com/javascript-in-plain-english/what-does-the-question-mark-mean-in-javascript-code-353cfadcf760
 https://eloquentjavascript.net/04_data.html
+
+
+C:\\Windows\Sysnative\cmd.exe
+
+C:\WINDOWS\System32\cmd.exe

@@ -28,6 +28,7 @@ const button = document.getElementById('btn');
 const resetBtn = document.getElementById('reset');
 //declare humanData to allow access from IIFE in multiple scopes
 
+
 // Constructor f() to create template for future dino objects - empty of information, template only
 function Dinosaur(species, weight, height, diet, where, when, fact, image) { 
     this.species = species;
@@ -38,12 +39,6 @@ function Dinosaur(species, weight, height, diet, where, when, fact, image) {
     this.when = when;
     this.fact = fact;
 };
-
-
-document.addEventListener('DOMContentLoaded', function(event) {
-    //call function which loads json data when DOM is loaded
-    init();
-});
 
 
 function init() {
@@ -69,7 +64,7 @@ function init() {
 
 
 function loadJSON(callback, done) {
-    var xhr = new XMLHttpRequest(); //object to request data from web server
+    let xhr = new XMLHttpRequest(); //object to request data from web server
     xhr.overrideMimeType('application/json');
     xhr.open('GET', 'dino.json', true); //initialize request
     xhr.onreadystatechange = function() { 
@@ -79,6 +74,15 @@ function loadJSON(callback, done) {
     };
     //xhr.send(null);
 } 
+
+
+
+document.addEventListener('DOMContentLoaded', function(event) {
+    //call function which loads json data when DOM is loaded
+    init();
+});
+
+
 
 function getHumanData() {
     const human = (function () { 
@@ -116,6 +120,7 @@ function getHumanData() {
     })();
     return human;
 }
+
 
 //create dino methods on Constructor()-template to compare into tiles
 Dinosaur.prototype.compareDiet = function(humanData) {
@@ -176,6 +181,7 @@ function tiles() {
                 const compareDHeight = dinoArray.compareHeight(humanData);
                 const compareDWeight = dinoArray.compareWeight(humanData);
                 const compareDFact = dinoArray.dinoFact();
+                
 
                 const randomFact= [
                     compareDHeight, 
